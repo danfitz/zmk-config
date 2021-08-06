@@ -12,9 +12,8 @@
 #define DEFAULT 0
 #define LOWER   1
 #define RAISE   2
-#define NAVIG   3
+#define ADJST   3
 #define FUNCT   4
-#define ADJST   5
 
 / {
     behaviors {
@@ -33,86 +32,72 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W   |  E   |  R   |  T  |   |  Y  |  U   |  I   |  O   |  P  |   BKSP    |
-// | CTRL |  A  |ALT(S)|SFT(D)|CTL(F)|  G  |   |  H  |CTL(J)|SFT(K)|ALT(L)|  ;  |    '      |
-// | SHFT |  Z  |  X   |  C   |  V   |  B  |   |  N  |  M   |  ,   |  .   |  /  | SHFT(RET) |
-//                         | FUNC | LWR |  SPACE  | RSE | FUNC |
+// --------------------------------------------------------------------------------------------------
+// | TAB  |  Q   |  W   |  E   |  R   |  T  |         |  Y  |   U   |  I   |  O   |  P  |   BKSP    |
+// | ESC  |  A   |  S   |  D   |  F   |  G  |         |  H  |   J   |  K   |  L   |  ;  |    '      |
+// | SHFT |CTL(Z)|ALT(X)|  C   |  V   |  B  |         |  N  |   M   |  ,   |  .   |  /  | SHFT(RET) |
+//                             | GUI  | LWR |  SPACE  | RSE | FUNCT |
                         bindings = <
-   &kp TAB   &kp Q &kp W      &kp E       &kp R       &kp T         &kp Y &kp U        &kp I       &kp O      &kp P    &kp BSPC
-   &kp ESC   &kp A &hm LALT S &hm LSHFT D &hm LCTRL F &kp G         &kp H &hm RCTRL J  &hm RSHFT K &hm LALT L &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X      &kp C       &kp V       &kp B         &kp N &kp M        &kp COMMA   &kp DOT    &kp FSLH &mt RSHFT RET
-                                      &kp LGUI &mo LOWER &lt NAVIG SPACE &mo RAISE &mo FUNCT
+   &kp TAB   &kp Q       &kp W        &kp E   &kp R     &kp T                     &kp Y     &kp U     &kp I      &kp O      &kp P     &kp BSPC
+   &kp ESC   &kp A       &kp S        &kp D   &kp F     &kp G                     &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
+   &kp LSHFT &hm LCTRL Z &hm LALT X   &kp C   &kp V     &kp B                     &kp N     &kp M     &kp COMMA  &kp DOT    &kp FSLH  &mt RSHFT RET
+                                              &kp LGUI  &mo LOWER &lt ADJST SPACE &mo RAISE &mo FUNCT
                         >;
                 };
 
                 lower_layer {
-// ----------------------------------------------------------------------------------
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
-// |    |  _  |  +  |  {  |  }  | "|" |   |  ~  | LFT | DWN |  UP | RGT |     `     |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | PRSC| HOME| PGDN| PGUP| END | SHFT(RET) |
-//                       |     |     | RET | ADJ |     |
+// ----------------------------------------------------------------------------------------
+// |  `   |  1  |  2  |  3  |  4  |  5  |       |  6  |  7  |  8  |  9  |  0  |    BKSP   |
+// | ESC  |     |     |     |     |     |       |     |  -  |  =  |  [  |  ]  |     \     |
+// | SHFT | CTL | ALT |     |     |     |       |     | HOME|  ,  |  .  |  /  | SHFT(RET) |
+//                          | GUI | ADJ | SPACE | ADJ |     |
                         bindings = <
-   &kp DEL &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS  &kp ASTRK   &kp LPAR  &kp RPAR  &kp DEL
-   &trans  &trans   &trans   &trans   &trans   &trans         &kp TILDE &kp UNDER &kp KP_PLUS &kp LBRC  &kp RBRC  &kp PIPE
-   &trans  &kp ESC  &kp LGUI &kp LALT &kp CLCK &kp SQT        &kp PSCRN &trans    &trans      &trans    &trans    &trans
-                                  &trans      &trans       &kp RET        &mo ADJST       &trans
+   &kp GRAVE  &kp N1     &kp N2    &kp N3  &kp N4    &kp N5                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
+   &kp ESC    &none      &none     &none   &none     &none                     &none      &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH
+   &kp LSHFT  &kp LCTRL  &kp LALT  &none   &none     &none                     &none      &none      &kp COMMA  &kp DOT   &kp FSLH  &mt RSHFT RET
+                                           &kp LGUI  &mo ADJST &lt ADJST SPACE &mo ADJST  &none
                         >;
                 };
-
+                
                 raise_layer {
-// ----------------------------------------------------------------------------------
-// |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |    DEL    |
-// |    |  -  |  =  |  [  |  ]  |  \  |   |  `  | LFT | DWN |  UP | RGT |     ~     |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | PRSC| HOME| PGDN| PGUP| END | SHFT(RET) |
-//                       |     | ADJ | BKSP |    |     |
+// ----------------------------------------------------------------------------------------
+// |  ~   |  !  |  @  |  #  |  $  |  %  |       |  ^  |  &  |  *  |  (  |  )  |    BKSP   |
+// | ESC  |     |     |     |     |     |       |     |  _  |  +  |  {  |  }  |    "|"    |
+// | SHFT | CTL | ALT |     |     |     |       |     |     |  <  |  >  |  ?  | SHFT(RET) |
+//                          | GUI | ADJ | SPACE | ADJ |     |
                         bindings = <
-   &kp DEL &kp N1   &kp N2    &kp N3   &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans  &trans   &trans    &trans   &trans    &trans        &kp GRAVE &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH
-   &trans  &kp ESC  &kp LGUI  &kp RALT &kp CLCK  &kp SQT       &kp PSCRN &trans    &trans    &trans    &trans    &trans
-                                 &trans      &mo ADJST       &kp BSPC        &trans      &trans
+   &kp TILDE  &kp EXCL   &kp AT    &kp HASH  &kp DLLR   &kp PRCNT                 &kp CARET  &kp AMPS   &kp ASTRK    &kp LPAR  &kp RPAR   &kp BSPC
+   &kp ESC    &none      &none     &none     &none      &none                     &none      &kp UNDER  &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE
+   &kp LSHFT  &kp LCTRL  &kp LALT  &none     &none      &none                     &none      &none      &kpe LT      &kp GT    &kp QMARK  &mt RSHFT RET
+                                             &kp LGUI   &mo ADJST &lt ADJST SPACE &mo ADJST  &none
                         >;
                 };
 
-                navig_layer {
-// ----------------------------------------------------------------------------------
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
-// |    |  _  |  +  |  {  |  }  | "|" |   | F1  | F2  | F3  | F4  | F5  | F6  |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     |     | RET | ADJ |     |
+                adjust_layer {
+// -----------------------------------------------------------------------------------------------------------
+// | TAB  |     |     |  BRIDN  |  BRIUP  |      |       |  HOME  |  PGUP  |  UP  |  PGDN  |     |   BKSP    |
+// | ESC  |     |     |  VOLDN  |  VOLUP  | MUTE |       |  END   |  LEFT  |  DN  |  RGHT  |     |           |
+// | SHFT | CTL | ALT |         |         |      |       |        |        |      |        |     | SHFT(RET) |
+//                              |  LGUI   |      | SPACE |        |        |
                         bindings = <
-   &kp DEL &trans  &trans   &trans   &trans   &trans      &trans  &trans   &trans    &trans    &trans    &kp DEL
-   &trans  &trans  &trans   &trans   &trans   &trans      &trans  &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans
-   &trans  &kp ESC &kp LGUI &kp LALT &kp CLCK &kp SQT     &trans  &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans
-                                  &trans   &trans   &trans   &trans   &trans
+   &kp TAB    &none      &none     &kp C_BRI_DN  &kp C_BRI_UP  &none                 &kp HOME  &kp PG_UP   &kp UP     &kp PG_DN  &none  &kp BSPC
+   &kp ESC    &none      &none     &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE            &kp END   &kp LEFT    &kp DOWN   &kp RIGHT  &none  &none
+   &kp LSHFT  &kp LCTRL  &kp LALT  &none         &none         &none                 &none     &none       &none      &none      &none  &mt RSHFT RET
+                                                 &kp LGUI      &none      &kp SPACE  &none     &none
                         >;
                 };
 
                 funct_layer {
 // ----------------------------------------------------------------------------------
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
-// |    |  _  |  +  |  {  |  }  | "|" |   | F1  | F2  | F3  | F4  | F5  | F6  |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     |     | RET | ADJ |     |
+// |     |     |     |     |     |     |     | BT1 | BT2 | BT3 | BT4 | BT5 | BT CLR |
+// |     |     |     |     |     |     |     |     |     |     |     |     |        |
+// |     |     |     |     |     |     |     |     |     |     |     |     |        |
+//                         |     |     |     |     |     |
                         bindings = <
-   &kp DEL &trans  &trans   &trans   &trans   &trans      &trans    &trans    &trans    &trans    &trans    &kp DEL
-   &trans  &trans  &trans   &trans   &trans   &trans      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6
-   &trans  &kp ESC &kp LGUI &kp LALT &kp CLCK &kp SQT     &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-                                  &trans   &trans   &trans   &trans   &trans
-                        >;
-                };
-
-                adjust_layer {
-// -----------------------------------------------------------------------------------------
-// | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    |         |   |       |     |     |     |     |        |
-// |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
-//                                              |     |     |     |     |     |
-                        bindings = <
-   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &none
-                                                             &trans      &trans       &tog 3        &trans      &trans
+   &none    &none    &none    &none    &none    &none         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+   &none    &none    &none    &none    &none    &none         &none         &none         &none         &none         &none         &none
+   &none    &none    &none    &none    &none    &none         &none         &none         &none         &none         &none         &none
+                                       &none    &none  &none  &none         &none
                         >;
                 };
         };
