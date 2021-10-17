@@ -39,9 +39,9 @@
 //                             | GUI  | LWR |  SPACE  | RSE | FUNCT |
                         bindings = <
    &kp TAB   &kp Q       &kp W        &kp E   &kp R     &kp T                     &kp Y     &kp U     &kp I      &kp O      &kp P     &kp BSPC
-   &kp ESC   &hm LSHFT A &hm LCTRL S  &hm LALT D &hm LGUI F &kp G                     &kp H     &hm RGUI J     &hm RALT K      &hm RCTRL L      &hm RSHFT SEMI  &kp SQT
-   &kp LSHFT &kp Z &kp X   &kp C   &kp V     &kp B                     &kp N     &kp M     &kp COMMA  &kp DOT    &kp FSLH  &mt RSHFT RET
-                                              &kp ESC  &lt LOWER BSPC &lt ADJST SPACE &lt RAISE RET &lt FUNCT TAB
+   &kp ESC   &kp A       &kp S        &kp D   &kp F     &kp G                     &kp H     &kp J     &kp K      &kp L      &kp SEMI  &kp SQT
+   &kp LSHFT &hm LCTRL Z &hm LALT X   &kp C   &kp V     &kp B                     &kp N     &kp M     &kp COMMA  &kp DOT    &kp FSLH  &mt RSHFT RET
+                                              &kp LGUI  &mo LOWER &lt ADJST SPACE &mo RAISE &mo FUNCT
                         >;
                 };
 
@@ -53,10 +53,9 @@
 //                          | GUI | ADJ | SPACE | ADJ |     |
                         bindings = <
    &kp GRAVE  &kp N1     &kp N2    &kp N3  &kp N4    &kp N5                    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
-   &kp ESC    &kp LSHFT  &kp LCTRL &kp LALT &kp LGUI &none                     &none      &hm RGUI MINUS  &hm RALT EQUAL  &hm RCTRL LBKT  &hm RSHFT RBKT  &kp BSLH
-   &kp LSHFT  &kp LCTRL  &kp LALT  &none   &none     &none                     &none      &kp SQT    &kp COMMA  &kp DOT   &kp FSLH  &mt RSHFT RET
-                                           &kp ESC  &lt LOWER BSPC &lt ADJST SPACE &lt RAISE RET &lt FUNCT TAB
-
+   &kp ESC    &none      &none     &none   &none     &none                     &none      &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH
+   &kp LSHFT  &kp LCTRL  &kp LALT  &none   &none     &none                     &none      &none      &kp COMMA  &kp DOT   &kp FSLH  &mt RSHFT RET
+                                           &kp LGUI  &mo ADJST &lt ADJST SPACE &mo ADJST  &none
                         >;
                 };
                 
@@ -68,9 +67,9 @@
 //                          | GUI | ADJ | SPACE | ADJ |     |
                         bindings = <
    &kp TILDE  &kp EXCL   &kp AT    &kp HASH  &kp DLLR   &kp PRCNT                 &kp CARET  &kp AMPS   &kp ASTRK    &kp LPAR  &kp RPAR   &kp BSPC
-   &kp ESC    &kp LSHFT  &kp LCTRL &kp LALT  &kp LGUI   &none                     &none      &hm RGUI UNDER  &hm RALT KP_PLUS  &hm RCTRL LBRC  &hm RSHFT RBRC   &kp PIPE
-   &kp LSHFT  &kp LCTRL  &kp LALT  &none     &none      &none                     &none      &kp DQT    &kp LT       &kp GT    &kp QMARK  &mt RSHFT RET
-                                             &kp ESC  &lt LOWER BSPC &lt ADJST SPACE &lt RAISE RET &lt FUNCT TAB
+   &kp ESC    &none      &none     &none     &none      &none                     &none      &kp UNDER  &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE
+   &kp LSHFT  &kp LCTRL  &kp LALT  &none     &none      &none                     &none      &none      &kp LT       &kp GT    &kp QMARK  &mt RSHFT RET
+                                             &kp LGUI   &mo ADJST &lt ADJST SPACE &mo ADJST  &none
                         >;
                 };
 
@@ -84,7 +83,7 @@
    &kp TAB    &none      &none     &kp C_BRI_DN  &kp C_BRI_UP  &none                 &kp HOME  &kp PG_UP   &kp UP     &kp PG_DN  &none  &kp BSPC
    &kp ESC    &none      &none     &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE            &kp END   &kp LEFT    &kp DOWN   &kp RIGHT  &none  &none
    &kp LSHFT  &kp LCTRL  &kp LALT  &none         &none         &none                 &none     &none       &none      &none      &none  &mt RSHFT RET
-                                                 &kp ESC  &lt LOWER BSPC &lt ADJST SPACE &lt RAISE RET &lt FUNCT TAB
+                                                 &kp LGUI      &none      &kp SPACE  &none     &none
                         >;
                 };
 
