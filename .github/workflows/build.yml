@@ -33,14 +33,14 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (Reviung41)
-        run: west build -s zmk/app -b nice_nano -- -DSHIELD=reviung41 -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
-      - name: Reviung41 Kconfig file
+      - name: West Build (Corne)
+        run: west build -s zmk/app -b nice_nano -- -DSHIELD=corne -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
+      - name: Corne Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 reviung41_nice_nano.uf2
-      - name: Archive (Reviung41)
+        run: cp build/zephyr/zmk.uf2 corne_nice_nano.uf2
+      - name: Archive (Corne)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: reviung41_nice_nano.uf2
+          path: corne_nice_nano.uf2
